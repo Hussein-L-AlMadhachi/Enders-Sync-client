@@ -1,0 +1,35 @@
+{
+    "name": "glasswire-client",
+    "version": "0.1.0",
+    "description": "A Fullstack RPC library connecting your backend to your frontend seemlessly over a REST API ",
+    "license": "MIT",
+    "author": "Hussein Layth Al-Madhachi",
+    "type": "module",
+    "main": "./dist/src/client.js",
+    "module": "./dist/src/client.js",
+    "types": "./dist/src/client.d.ts",
+    "exports": {
+        ".": {
+        "import": "./dist/src/client.js",
+        "types": "./dist/src/client.d.ts"
+        }
+    },
+    "keywords": [
+        "rpc",
+        "remote-procedure-call",
+        "express",
+        "api",
+        "microservices",
+        "backend",
+        "typescript",
+        "nodejs",
+        "middleware",
+        "cookie-auth",
+        "json-rpc",
+        "lightweight",
+        "glasswire"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
