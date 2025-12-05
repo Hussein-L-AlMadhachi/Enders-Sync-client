@@ -111,7 +111,7 @@ import { RPC } from 'enders-sync-client';
 export const api = new RPC('/api/public');
 
 // Load available functions (call once on app initialization)
-await api.load();
+api.load( "getUser", "calculateSum" );
 
 // Now call server functions as if they were local!
 const user = await api.getUser(123);
@@ -235,11 +235,9 @@ export const userAPI = new RPC('/api/user');
 export const adminAPI = new RPC('/api/admin');
 
 // Load all APIs
-await Promise.all([
-  publicAPI.load(),
-  userAPI.load(),
-  adminAPI.load()
-]);
+publicAPI.load("getUser", "calculateSum"),
+userAPI.load("getMyProfile"),
+adminAPI.load("getAdminProfile")
 ```
 
 ## API Reference
@@ -430,7 +428,7 @@ export interface PublicAPI {
 }
 
 export const public_api = new RPC('/api/public') as PublicAPI;
-await public_api.load();
+public_api.load("getUser", "calculateSum");
 
 // Now you get full type safety!
 const user: User = await public_api.getUser(123);
@@ -440,7 +438,7 @@ const user: User = await public_api.getUser(123);
 
 [Go Back](#table-of-content)
 
-1. **Initialize once**: Call `api.load()` once when your app starts, not on every component mount
+1. **Initialize once**: Call `api.load( ...methods )` to declare the available RPC functions globally in the RPC object
 2. **Error handling**: Always handle errors from RPC calls
 3. **Named functions**: Use named functions (not arrow functions) for RPC handlers
 4. **Validation**: Validate input parameters in your RPC functions
@@ -506,7 +504,7 @@ export const api = new RPC('/api/public');
 import { api } from './api.js';
 
 // Initialize
-await api.load();
+api.load("getUsers", "getUserById", "searchUsers");
 
 // Use anywhere in your app
 const users = await api.getUsers();

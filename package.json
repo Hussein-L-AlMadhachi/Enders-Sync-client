@@ -1,6 +1,6 @@
 {
     "name": "enders-sync-client",
-    "version": "0.1.2",
+    "version": "0.2.1",
     "description": "A Fullstack RPC library connecting your backend to your frontend seemlessly over a REST API ",
     "license": "MIT",
     "author": "Hussein Layth Al-Madhachi",
@@ -10,9 +10,14 @@
     "types": "./dist/src/client.d.ts",
     "exports": {
         ".": {
-        "import": "./dist/src/client.js",
-        "types": "./dist/src/client.d.ts"
+            "import": "./dist/src/client.js",
+            "types": "./dist/src/client.d.ts"
         }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Hussein-L-AlMadhachi/Enders-Sync.git",
+        "directory": "packages/Enders-Sync-client"
     },
     "keywords": [
         "rpc",
@@ -26,10 +31,10 @@
         "middleware",
         "cookie-auth",
         "json-rpc",
-        "lightweight",
-        "glasswire"
+        "lightweight"
     ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc"
     }
 }
